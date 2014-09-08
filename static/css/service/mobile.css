@@ -1,0 +1,347 @@
+/**
+ * @description
+ * @author   sherlock
+ * @time     1：20
+ */
+
+
+.content{
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+
+
+
+}
+.content .wrapper{
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+
+}
+
+
+/** 图片 **/
+
+.all-img{
+    background-image: url("../../images/all.png");
+    background-size: 749.5px 952px;
+    background-repeat: no-repeat;
+    width: 749.5px;
+    height: 952px;
+}
+
+.font-img{
+    background-image: url("../../images/font.png");
+    background-size: 226px 658.5px;
+    background-repeat: no-repeat;
+    width: 226px;
+    height: 658.5px;
+}
+
+/** 玩具 **/
+.bike{
+    background-position:  0px 0px;
+    width: 303.5px;
+    height: 162px;
+
+
+    position: absolute;
+
+
+    right: -65px;
+    bottom: 21px;
+}
+
+
+/** 文字 **/
+.font-01{  background-position:   0 0;    width: 140px;   height: 82.5px;}
+.font-02{   background-position:  0 -83px; width: 139px; height: 83px;}
+.font-03{   background-position:  0 -165.5px; width: 166px; height: 109.5px;}
+.font-04{   background-position:  0 -275px; width: 196px; height: 83px;}
+
+/** 文字位置 **/
+.font-pos{
+    position: absolute;
+    top: 24%;
+    left: 8%;
+}
+
+
+
+
+
+
+
+/** logo **/
+.logo{
+    background-position:  -624.5px -794px;
+    width: 74px;
+    height: 55.5px;
+
+    position: absolute;
+    left: 8%;
+    top:  6%;
+
+}
+
+
+
+
+/** 整体屏幕 **/
+.screen-all{
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 100%;
+    width: 100%;
+
+    -webkit-transition:  -webkit-transform 0.6s ease;
+    transition: transform  0.6s ease;
+
+
+}
+
+.screen{
+    position: relative;
+
+    height: 100%;
+    width: 100%;
+}
+
+#screen-00{ background:#ff5050;  }
+#screen-01{ background:#88c6ff;  }
+#screen-02{ background:#18b47f;  }
+#screen-03{ background:#f27418;  }
+
+
+
+.pond{
+
+    /*background-position:  -303.5px 0;*/
+    /*width: 321px;*/
+    /*height: 86px;*/
+
+    /** 拉伸做法 **/
+    background-image: url("../../images/bg.png");
+    height: 85px;
+    width: 100%;
+    background-size: cover;
+
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+
+
+    background-repeat: repeat-x;
+
+
+}
+
+.pond-top{
+    position: absolute;
+    bottom: 86px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+}
+
+.mon{
+    background-position: 0 -162px;
+    width: 284.5px;
+    height: 118px;
+
+    position: absolute;
+    left: -48px;
+    bottom: -3px;
+}
+
+.pavilion{
+    background-position: -624.5px -567px;
+    width: 94px;
+    height: 90.5px;
+
+    position: absolute;
+    left: 18px;
+    bottom: -1px;
+}
+
+.ferris-whee{
+    background-position: -303.5px -640.5px;
+    width: 174px;
+    height: 184.5px;
+
+    position: absolute;
+    right: 10%;
+    bottom: -1px;
+}
+.ship{
+    background-position: -624.5px -768.5px;
+    width: 65.5px;
+    height: 25.5px;
+
+    position: absolute;
+
+
+    left: 50%;
+    bottom: 25px;
+    margin-left: -40px;
+
+}
+
+.t-shirt{
+    background-position: 0 -280px;
+    width: 242.5px;
+    height: 194.5px;
+
+    position: absolute;
+
+
+    right:  -59px;
+    bottom: 32px;
+
+
+}
+
+.bag{
+    background-position: -624.5px -269px;
+    width: 108px;
+    height: 154px;
+
+    position: absolute;
+
+
+
+    left: 8%;
+    bottom: 32px;
+
+}
+
+
+.police{
+    background-position:  0 -474.5px;
+    width: 195px;
+    height: 255px;
+
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    margin-left: -97.5px;
+}
+
+.circle-small{
+    background-position: -516.5px -422px;
+    width: 52.5px;
+    height: 52.5px;
+
+    position: absolute;
+    bottom : 110px;
+    right:  -25px;
+}
+
+
+.circle-big{
+    background-position: -516.5px -474.5px;
+    width: 79px;
+    height: 79px;
+
+    position: absolute;
+    bottom : 162px;
+    left: -35px;
+}
+
+
+/** 动画部分 **/
+
+.hide{
+    display: none;
+}
+
+.font-01{
+
+
+    opacity: 0;
+
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -ms-perspective: 1000;
+    perspective: 1000;
+
+    -webkit-animation: bounceIn 0.6s linear 0.5s 1;
+}
+
+.an-bike{
+    opacity: 0;
+    -webkit-animation:  bounceInRight  1.5s ease-in-out 0.7s;
+}
+
+.font-02{
+    opacity: 0;
+    -webkit-animation: bounceIn 0.6s linear 0.5s 1;
+}
+.mon{
+    opacity: 0;
+    -webkit-animation: bounceInUp 0.5s linear 1s;
+}
+
+.pavilion{
+    opacity: 0;
+    -webkit-animation : bounceInUp 0.5s linear 1.3s;
+}
+
+.ferris-whee{
+    opacity: 0;
+    -webkit-animation : bounceInUp 0.5s linear 1.8s;
+}
+
+.font-03{
+    opacity: 0;
+    -webkit-animation: bounceIn 0.6s linear 0.5s 1;
+}
+.font-04{
+    opacity: 0;
+    -webkit-animation: bounceIn 0.6s linear 0.5s 1;
+}
+.bag{
+    opacity: 0;
+    -webkit-animation: bounceIn 0.6s linear 1s 1;
+}
+.t-shirt{
+    opacity: 0;
+    -webkit-animation: bounceIn 0.6s linear 1.4s 1;
+}
+
+.circle-big{
+    opacity: 0;
+    -webkit-animation: disperse_i 7s linear 0s infinite;
+
+}
+
+.circle-small {
+    opacity: 0;
+    -webkit-animation: disperse_i 5s linear 1.5s infinite;
+}
+.police{
+    opacity: 0;
+    -webkit-animation:  bounceInLeft  1.5s ease-in-out 0.5s;
+}
+
+.an-util-both{
+    -webkit-animation-fill-mode: both !important;
+    -moz-animation-fill-mode: both !important;
+    -o-animation-fill-mode: both !important;
+    animation-fill-mode: both !important;
+
+}
+
