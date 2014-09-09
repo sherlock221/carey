@@ -221,7 +221,7 @@ $(function(){
 
     //检测手机系统
     //alert(JSON.stringify(brower.versions()));
-    EventMobile.init();
+   EventMobile.init();
 });
 
 
