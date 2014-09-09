@@ -61,6 +61,9 @@
 .font-02{   background-position:  0 -83px; width: 139px; height: 83px;}
 .font-03{   background-position:  0 -165.5px; width: 166px; height: 109.5px;}
 .font-04{   background-position:  0 -275px; width: 196px; height: 83px;}
+.font-05{   background-position:  0 -358px; width: 150.5px; height: 109px;}
+.font-06{   background-position:  0 -467px; width: 225px; height:  109px;}
+.font-07{   background-position:  0 -576px; width: 150.5px; height: 82.5px;}
 
 /** 文字位置 **/
 .font-pos{
@@ -84,6 +87,7 @@
     position: absolute;
     left: 8%;
     top:  6%;
+    z-index : 10;
 
 }
 
@@ -119,6 +123,9 @@
 #screen-01{ background:#88c6ff;  }
 #screen-02{ background:#18b47f;  }
 #screen-03{ background:#f27418;  }
+#screen-04{ background:#ec3e3e;  }
+#screen-05{ background:#5f54cf;  }
+#screen-06{ background:#efba2d;  }
 
 
 
@@ -257,6 +264,78 @@
     left: -35px;
 }
 
+.window{
+    background-position:  0 -729.5px;
+    width: 123.5px;
+    height:  147.5px;
+
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    margin-top:  -74px;
+}
+.table{
+    background-position:  -303.5px -86px;
+    width:  300.5px;
+    height:  74px;
+
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+.child{
+    background-position:  -303.5px -825px;
+    width:  157.5px;
+    height:  90px;
+
+    position: absolute;
+    right: 62px;
+    bottom: 71px;
+}
+.frozen{
+    background-position:  -303.5px -411.5px;
+    width:  133.5px;
+    height:  229px;
+
+    position: absolute;
+    right: 45px;
+    bottom: 30px;
+    z-index: 2;
+}
+.ice{
+    background-position:  -624.5px -657.5px;
+    width:  74px;
+    height:  111px;
+
+    position: absolute;
+    right: 146px;
+    bottom: 30px;
+    z-index: 3;
+}
+
+.zip{
+
+    background-position:  -303.5px -162px;
+    width:   213px;
+    height:  251.5px;
+
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    margin-left: -106.5px;
+    z-index: 3;
+
+}
+.letter{
+    background-position: -624.5px -422px;
+    width: 106px;
+    height: 145px;
+    position: absolute;
+    top: -108px;
+    right: -39px;
+    z-index: 4;
+
+}
 
 /** 动画部分 **/
 
@@ -288,11 +367,15 @@
 
 .font-02{
     opacity: 0;
-    -webkit-animation: bounceIn 0.6s linear 0.5s 1;
+    -webkit-animation: bounceIn 0.6s linear 0.3s 1;
 }
 .mon{
     opacity: 0;
     -webkit-animation: bounceInUp 0.5s linear 1s;
+}
+.pond{
+    opacity: 0;
+    -webkit-animation: bounceInUp 0.5s linear 0.6s;
 }
 
 .pavilion{
@@ -335,6 +418,62 @@
 .police{
     opacity: 0;
     -webkit-animation:  bounceInLeft  1.5s ease-in-out 0.5s;
+}
+
+
+
+
+.font-05{
+    opacity: 0;
+    -webkit-animation: bounceIn 0.6s linear 0.3s 1;
+}
+
+
+.window{
+    opacity: 0;
+    -webkit-animation: fadeIn 0.6s linear 1.5s 1;
+}
+
+.table{
+    opacity: 0;
+    -webkit-animation: bounceInUp 0.3s linear 0.5s 1;
+    z-index: 3;
+
+}
+
+.child{
+    opacity: 0;
+    -webkit-animation: bounceInUp 0.3s linear 0.8s 1;
+    z-index: 2;
+
+}
+.font-06{
+    opacity: 0;
+    -webkit-animation: bounceIn 0.6s linear 0.3s 1;
+}
+
+
+
+.frozen{
+    opacity: 0;
+    -webkit-animation: bounceInRight 1s ease 1.1s 1;
+}
+.ice{
+    opacity: 0;
+    -webkit-animation: bounceInLeft 0.6s ease 0.8s 1;
+}
+
+.font-07{
+    opacity: 0;
+    -webkit-animation: bounceIn 0.6s linear 0.3s 1;
+}
+.zip{
+    opacity: 0;
+    -webkit-animation: bounceInUp 0.6s linear 0.6s 1;
+}
+.letter{
+    opacity: 0;
+    -webkit-animation: fadeIn 1s linear 1.5s 1;
 }
 
 .an-util-both{
