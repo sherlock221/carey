@@ -17,7 +17,7 @@
 
 
 
-    var Event = {
+    var EventMobile = {
 
         init: function () {
 
@@ -33,7 +33,7 @@
 
             $screen.css("height", Cons.LayerHeight + "px");
             //事件初始化
-            Event.button();
+            EventMobile.button();
 
 
 
@@ -48,29 +48,60 @@
             var $screen = UI.ScreenAll.find(".screen");
             Cons.LastIndex = $screen.size() -1;
 
-            $("body").touchwipe({
-                listen : 'y',
-                start  :  function(result){
-                    console.log("开始滑动...");
-                },
-                move   : function(result){
+//            $("body").touchwipe({
+//                listen : 'y',
+//                start  :  function(result){
+//                    console.log("开始滑动...");
+//                },
+//                move   : function(result){
+//
+//                },
+//                stop   : function(result){
+//                    //从下往上
+//                    if(result.dy > 0){
+//                        Cons.currentIndex++;
+//                    }
+//                    //从上往下
+//                    else{
+//                        Cons.currentIndex--;
+//                    }
+//                    Cons.currentIndex = currentIndexSlice(Cons.currentIndex);
+//                    toggleDot(Cons.currentIndex);
+//                }
+//
+//            });
+
+
+
+            var wrapper_scroll = new Scroller('#wp', {
+                Scontainer : '.screen-all',
+                hScroll : false,
+                vScroll : true,
+                momentum : true,
+                bounce : false,
+                snap: true,
+                scrollBefore: function(name, e){
 
                 },
-                stop   : function(result){
-                    //从下往上
-                    if(result.dy > 0){
-                        Cons.currentIndex++;
-                    }
-                    //从上往下
-                    else{
-                        Cons.currentIndex--;
-                    }
-                    Cons.currentIndex = currentIndexSlice(Cons.currentIndex);
-                    toggleDot(Cons.currentIndex);
+                onScroll: function(name, obj){
+                },
+                onTouchEnd: function(name, obj){
+                },
+                scrollEnd: function(index){
+                    console.log(index);
+                    var pages = this.$li;
+                    var $screen = UI.ScreenAll.find(".screen");
+                    var node = $screen.filter("[id='screen-0"+index+"']");
+
+
+                    for (var i = 0; i < $screen.length; i++) {
+                        var $sc = $($screen[i]);
+                        $sc.find(".content").addClass("hide");
+                    };
+                    node.find(".content").removeClass("hide");
+
                 }
-
             });
-
 
 
 
@@ -190,7 +221,8 @@ $(function(){
 
     //检测手机系统
     //alert(JSON.stringify(brower.versions()));
+    EventMobile.init();
 });
-Event.init();
+
 
 
