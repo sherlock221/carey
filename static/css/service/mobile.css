@@ -50,6 +50,124 @@
     z-index: 4;
 }
 
+.box-img{
+    background-image: url("../../images/box.jpg");
+    background-size: 225px  2316px;
+}
+/** 盒子 **/
+.px-title{
+    position: absolute;
+
+    margin-top: 30px;
+
+    font-size: 17px;
+
+    text-align: center;
+    width: 100%;
+    bottom: 34px;
+}
+.px-title h5{
+    font-weight: normal;
+    color: #ffffff;
+    margin: 0;
+}
+.px{
+
+    position: absolute;
+
+
+    left: 50%;
+    margin-left:  -112.5px;
+
+    bottom: 124px;
+    width: 225px;
+    height: 331px;
+
+}
+
+.fx{
+    position: absolute;
+
+
+    left: 50%;
+    margin-left:  -112.5px;
+
+    bottom: 124px;
+    width: 225px;
+    height: 331px;
+}
+
+.price{
+    background: #ffffff;
+    border-radius: 30px;
+    color: #ff508a;
+    text-align: center;
+    width: 155px;
+    display: inline-block;
+    height: 43px;
+
+    top: 37px;
+    position: relative;
+    z-index: 10;
+    line-height: 44px;
+}
+.open{
+    -webkit-animation-name: box;/* 动画名称 */
+    -webkit-animation-iteration-count: 1;/* 动画无限播放 */
+    -webkit-animation-timing-function: step-start;/* 马上跳到动画每一结束桢的状态 */
+    -webkit-animation-duration: 0.7s;/* 动画运行的时间 */
+}
+.rubberBand{
+    -webkit-animation: rubberBand 0.7s ease  0.3s;
+}
+@-webkit-keyframes  box{
+    0% {background-position: 0 0;}
+    20% {background-position:  0 -331px;}
+    40% {background-position:  0 -662px;}
+    60% {background-position:  0 -993px;}
+    80% {background-position:  0 -1324px;}
+    100% {background-position: 0 -1655px;}
+}
+
+
+@-webkit-keyframes rubberBand {
+    0% {
+        -webkit-transform: scale3d(1,1,1);
+        transform: scale3d(1,1,1)
+    }
+
+    30% {
+        -webkit-transform: scale3d(1.25,.75,1);
+        transform: scale3d(1.25,.75,1)
+    }
+
+    40% {
+        -webkit-transform: scale3d(0.75,1.25,1);
+        transform: scale3d(0.75,1.25,1)
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.15,.85,1);
+        transform: scale3d(1.15,.85,1)
+    }
+
+    65% {
+        -webkit-transform: scale3d(.95,1.05,1);
+        transform: scale3d(.95,1.05,1)
+    }
+
+    75% {
+        -webkit-transform: scale3d(1.05,.95,1);
+        transform: scale3d(1.05,.95,1)
+    }
+
+    100% {
+        -webkit-transform: scale3d(1,1,1);
+        transform: scale3d(1,1,1)
+    }
+}
+
+
 /** 玩具 **/
 .bike{
     background-position:  0px 0px;
@@ -128,19 +246,57 @@
     width: 100%;
 }
 
-#screen-00{ background:#ff5050;  }
-#screen-01{ background:#88c6ff;  }
-#screen-02{ background:#18b47f;  }
-#screen-03{ background:#f27418;  }
-#screen-04{ background:#ec3e3e;  }
-#screen-05{ background:#5f54cf;  }
-#screen-06{ background:#efba2d;  }
+#screen-00{ background:#ff508a;  }
+#screen-01{ background:#ff5050;  }
+#screen-02{ background:#88c6ff;  }
+#screen-03{ background:#18b47f;  }
+#screen-04{ background:#f27418;  }
+#screen-05{ background:#ec3e3e;  }
+#screen-06{ background:#5f54cf;  }
+#screen-07{ background:#efba2d;  }
 
-#screen-07{ background:#ff508a;  }
+#screen-08{ background:#ff508a;  }
 
-#screen-08{ background: #ff5050;}
 
-#screen-08 .bottom-screen{ background:#d53535;  }
+.screen09{
+    background: #ff5050 !important;
+}
+
+.screen09 .bottom-screen{ background:#d53535;  }
+
+.star-list{
+    position: relative;
+    width: 100%;
+
+    left: 0;
+
+
+    top: 17%;
+}
+.star-list > a{
+    color: #ffffff;
+    text-align: center;
+    font-size: 16px;
+
+    left: 50%;
+    position: relative;
+    margin-left: -67px;
+}
+
+
+/*#screen-00{ background:#ff5050;  }*/
+/*#screen-01{ background:#88c6ff;  }*/
+/*#screen-02{ background:#18b47f;  }*/
+/*#screen-03{ background:#f27418;  }*/
+/*#screen-04{ background:#ec3e3e;  }*/
+/*#screen-05{ background:#5f54cf;  }*/
+/*#screen-06{ background:#efba2d;  }*/
+
+/*#screen-07{ background:#ff508a;  }*/
+
+/*#screen-08{ background: #ff5050;}*/
+
+/*#screen-08 .bottom-screen{ background:#d53535;  }*/
 
 
 .pond{
@@ -365,7 +521,10 @@
 
 
 /** 动画部分 **/
-
+.px-title{
+    opacity: 0;
+    -webkit-animation: bounceIn 0.6s linear 0.5s 1;
+}
 .hide{
     display: none;
 }
@@ -456,8 +615,18 @@
 }
 
 
-
-
+.share-it{
+    background: none;
+    border-radius: 30px;
+    width: 160px;
+    padding-left: 15px;
+    border: 1px solid #ffffff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.form-group{
+    margin-bottom: 12px;
+}
 .font-05{
     opacity: 0;
     -webkit-animation: bounceIn 0.6s linear 0.3s 1;

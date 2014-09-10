@@ -6,7 +6,9 @@
 
 
     var UI = {
-       ScreenAll : $("#screen-all")
+       ScreenAll : $("#screen-all"),
+       logo      : $("#logo"),
+       box       : $("#px")
     };
 
     var Cons = {
@@ -14,6 +16,18 @@
         currentIndex : 0,
         LastIndex   : 0
     };
+
+
+
+    //animation
+    var tt = document.querySelector('#px');
+   if(tt){
+       tt.addEventListener("webkitAnimationEnd", function(){
+           UI.box.removeClass("rubberBand").addClass("open");
+           return false;
+       },false);
+   }
+
 
 
 
@@ -37,6 +51,7 @@
 
 
 
+
             $(window).resize(function(){
 
                 //alert("窗口发生变化")
@@ -47,30 +62,6 @@
 
             var $screen = UI.ScreenAll.find(".screen");
             Cons.LastIndex = $screen.size() -1;
-
-//            $("body").touchwipe({
-//                listen : 'y',
-//                start  :  function(result){
-//                    console.log("开始滑动...");
-//                },
-//                move   : function(result){
-//
-//                },
-//                stop   : function(result){
-//                    //从下往上
-//                    if(result.dy > 0){
-//                        Cons.currentIndex++;
-//                    }
-//                    //从上往下
-//                    else{
-//                        Cons.currentIndex--;
-//                    }
-//                    Cons.currentIndex = currentIndexSlice(Cons.currentIndex);
-//                    toggleDot(Cons.currentIndex);
-//                }
-//
-//            });
-
 
 
             var wrapper_scroll = new Scroller('#wp', {
@@ -89,6 +80,17 @@
                 },
                 scrollEnd: function(index){
                     console.log(index);
+
+                    //logo 部分
+                    if(index == "0" || index == "8"){
+                        UI.logo.hide();
+                    }
+                    else if(index == "1"){
+                        UI.logo.show();
+                    }
+
+
+
                     var pages = this.$li;
                     var $screen = UI.ScreenAll.find(".screen");
                     var node = $screen.filter("[id='screen-0"+index+"']");
