@@ -116,6 +116,8 @@
     -webkit-animation-iteration-count: 1;/* 动画无限播放 */
     -webkit-animation-timing-function: step-start;/* 马上跳到动画每一结束桢的状态 */
     -webkit-animation-duration: 0.7s;/* 动画运行的时间 */
+    -webkit-animation-delay : 0.5s;
+
 }
 .rubberBand{
     -webkit-animation: rubberBand 0.7s ease  0.3s;
