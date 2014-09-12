@@ -39,8 +39,11 @@
 
     <script type="text/javascript" src="static/js/zepto.js"></script>
     <!--<script type="text/javascript" src="static/js/zeptroTounch.js"></script>-->
-    <script type="text/javascript" src="static/js/common.js"></script>
-    <script type="text/javascript" src="static/js/scroll.js"></script>
+    <script type="text/javascript" src="./static/js/common.js"></script>
+    <script type="text/javascript" src="./static/js/scroll.js"></script>
+
+    <!--<script type="text/javascript" src="./static/js/main.js"> </script>-->
+
 
 
 
@@ -242,9 +245,10 @@
 
 
             <li class="screen"  id="screen-08">
+                <a href="javascript:void(0);" class="price"  id="price">点击抽奖</a>
                 <div class="content hide" style="text-align: center;">
 
-                    <a href="./draw.html" class="price" onclick="window.location.href='draw.html'">点击抽奖</a>
+
                     <span class="ib fx box-img  an-util-forwardsan-util-forwards "></span>
                     <div class="px-title an-util-forwards">
                         <h5>和曾经的TA结而为约</h5>
@@ -258,40 +262,7 @@
 
 
 
-                <li class="screen"  id="screen-09">
-                    <div class="content hide">
 
-
-                        <div>
-                            <i class="ib an_1 "></i>
-                            <i class="ib an_2"></i>
-                            <i class="ib an_3"></i>
-                            <i class="ib an_4"></i>
-                            <i class="ib an_5"></i>
-                            <i class="ib an_6"></i>
-                            <i class="ib an_6-1"></i>
-                            <i class="ib an_7"></i>
-                            <i class="ib an_8"></i>
-                            <i class="ib an_9"></i>
-
-                        </div>
-
-                        <div class="bottom-screen an-util-forwards">
-                            <span class="box all-img an-util-forwards "></span>
-
-                        </div>
-
-                        <!--<div class=" font-07 font-img font-pos an-util-forwards">-->
-                            <!--<h3 class="hidden-val">seo优化标题</h3>-->
-                            <!--<p class=" hidden-val">seo优化内容</p>-->
-                        <!--</div>-->
-
-
-                        <div class="arrow">
-                            <i class="ib icon icon-arrow  arrowUp"></i>
-                        </div>
-                    </div>
-                </li>
             </ul>
 
         </div>
@@ -310,5 +281,12 @@
 
 </html>
 
-<script type="text/javascript" src="static/js/mobile.js"></script>
+<script type="text/javascript" src="./static/js/mobile.js"></script>
+<script type="text/javascript">
+    $("#price").bind("tap", function () {
+        window.location.href = "./draw.html";
+    })
+
+</script>
+
 

@@ -35,17 +35,17 @@
 
         init: function () {
 
-            //自适应高度
-            var $screen = UI.ScreenAll.find(".screen");
-
-            //首次初始化高度
-
-            var winh =   UI.ScreenAll[0].offsetHeight;
-
-            Cons.LayerHeight =winh;
-//            //修改每个的高度
-
-            $screen.css("height", Cons.LayerHeight + "px");
+//            //自适应高度
+//            var $screen = UI.ScreenAll.find(".screen");
+//
+//            //首次初始化高度
+//
+//            var winh =   UI.ScreenAll[0].offsetHeight;
+//
+//            Cons.LayerHeight =winh;
+////            //修改每个的高度
+//
+//            $screen.css("height", Cons.LayerHeight + "px");
             //事件初始化
             EventMobile.button();
 

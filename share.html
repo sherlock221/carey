@@ -64,38 +64,40 @@
 
             <!-- 分享 -->
                 <li class="screen screen10"  id="screen-00">
-                    <div class="content hide">
+                    <div class="content ">
 
 
 
-                        <div>
-                            <form action="/" method="post" >
-
-                                <div class="form-group">
-                                    <input type="text" name="userName"  class="share-it" />
-                                </div>
-
-                                <div class="form-group">
-                                    <input type="text" name="mobile"   class="share-it"/>
-                                </div>
-
-                            </form>
+                            <i class="ib share-head all-img"></i>
 
 
-                        </div>
+                            <div class="text-center share-text">
+                                    <span class="ib ">竟然没有中奖<br/>快转发到朋友圈获得额外抽奖机会！</span>
+                            </div>
 
+                            <div>
+                                     <button type="button"  id="share" class="share-btn" >分享到微信朋友圈</button>
+                            </div>
 
-
-
-
-                        <div class="arrow">
-                            <i class="ib icon icon-arrow  arrowUp"></i>
-                        </div>
                     </div>
                 </li>
             </ul>
 
         </div>
+
+        <!-- 朋友圈分享层 -->
+        <div class="share-layer" id="share-layer" style="display: none;">
+            <i class="ib share-img share-tips"></i>
+            <span class="share-hend-txt">
+                请点击右上角按钮<i class="ib share-img share-hend" style="vertical-align: middle;"></i>
+            </span>
+            <span class="ib share-friend-txt"><i class="share-img share-friend ib"  style="vertical-align: middle;">
+            </i>分享到朋友圈
+            </span>
+
+        </div>
+
+
 </section>
 
 
@@ -104,12 +106,19 @@
 
 </footer>
 
-
+<div class="mask" id="mask" style="display: none;"></div>
 
 </body>
 
 
 </html>
 
-<script type="text/javascript" src="static/js/mobile.js"></script>
+<script type="text/javascript">
+
+        $("#share").bind("tap",function(){
+            $("#mask").show();
+            $("#share-layer").show();
+        });
+
+</script>
 

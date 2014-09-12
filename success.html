@@ -38,9 +38,7 @@
 
 
     <script type="text/javascript" src="static/js/zepto.js"></script>
-    <!--<script type="text/javascript" src="static/js/zeptroTounch.js"></script>-->
-    <script type="text/javascript" src="static/js/common.js"></script>
-    <script type="text/javascript" src="static/js/scroll.js"></script>
+
 
 
 </head>
@@ -54,52 +52,59 @@
 
 <section class="content" id="wp">
 
-        <div class="wrapper">
+    <div class="wrapper">
 
 
-            <i class="ib logo all-img" id="logo" style="display: none;"></i>
+        <i class="ib logo all-img" id="logo" style="display: none;"></i>
 
-            <!-- 全部层 -->
-            <ul class="screen-all" id="screen-all" >
+        <!-- 全部层 -->
+        <ul class="screen-all" id="screen-all" >
 
-            <!-- 盒子 -->
+            <!-- 表单页面 -->
 
-                <li class="screen screen09"  id="screen-00">
-                    <div class="content hide">
+            <li class="screen screen11"  id="screen-00">
+                <div class="content ">
 
-                        <div class="star-list">
-                            <i class="ib an_1 "></i>
-                            <i class="ib an_2"></i>
-                            <i class="ib an_3"></i>
-                            <i class="ib an_4"></i>
-                            <i class="ib an_5"></i>
-                            <i class="ib an_6"></i>
-                            <i class="ib an_6-1"></i>
-                            <i class="ib an_7"></i>
-                            <i class="ib an_8"></i>
-                            <i class="ib an_9"></i>
-                            <a class="ib" href="">点击领取青春大礼包</a>
+
+
+
+                    <div style="padding: 30px;">
+
+                        <div class="ib text-center success">
+                            <!--中奖图片-->
+                            <img src="./static/images/jianpin.jpg"  width="160" height="204.5"/>
+                            <div class="text-center success-text">恭喜您! 抽中了粉小熊</div>
                         </div>
 
-                        <div class="bottom-screen an-util-forwards">
-                            <span class="box all-img an-util-forwards "></span>
-
-                        </div>
-
-                        <!--<div class=" font-07 font-img font-pos an-util-forwards">-->
-                            <!--<h3 class="hidden-val">seo优化标题</h3>-->
-                            <!--<p class=" hidden-val">seo优化内容</p>-->
-                        <!--</div>-->
 
 
-                        <div class="arrow">
-                            <i class="ib icon icon-arrow  arrowUp"></i>
-                        </div>
+                        <!--表单提交在这里-->
+                        <form action="/" method="post" id="successForm" >
+
+                            <div class="form-group">
+                                <input type="text" name="userName"  class=" share-it"  placeholder="姓名"/>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" name="mobile"   class=" share-it" placeholder="电话"/>
+                            </div>
+
+                            <div class="form-group">
+                               <button type="button" class="success-btn">提交</button>
+                            </div>
+                        </form>
+
+
                     </div>
-                </li>
-            </ul>
 
-        </div>
+
+
+
+                </div>
+            </li>
+        </ul>
+
+    </div>
 </section>
 
 
@@ -115,5 +120,5 @@
 
 </html>
 
-<script type="text/javascript" src="static/js/mobile.js"></script>
+<script type="text/javascript" src="static/js/other.js"></script>
 
