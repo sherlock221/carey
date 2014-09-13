@@ -863,6 +863,8 @@ a:hover{
 }
 
 
+
+
 /**
  * 旋转360度
  */
@@ -1543,24 +1545,24 @@ a:hover{
 /** 保持结束帧 **/
 .an-util-forwards{
     -webkit-animation-fill-mode: forwards !important;
-    -moz-animation-fill-mode: forwards;
-    -o-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards !important;
+    -o-animation-fill-mode: forwards !important;
+    animation-fill-mode: forwards !important;
 }
 
 .an-util-allwards{
     -webkit-animation-fill-mode: both !important;
-    -moz-animation-fill-mode: both;
-    -o-animation-fill-mode: both;
-    animation-fill-mode: both;
+    -moz-animation-fill-mode: both !important;
+    -o-animation-fill-mode: both !important;
+    animation-fill-mode: both !important;
 }
 
 /** 保持开始帧 **/
 .an-util-backwards{
     -webkit-animation-fill-mode: backwards  !important;;
-    -moz-animation-fill-mode: backwards;
-    -o-animation-fill-mode: backwards;
-    animation-fill-mode: backwards;
+    -moz-animation-fill-mode: backwards !important;
+    -o-animation-fill-mode: backwards !important;
+    animation-fill-mode: backwards !important;
 }
 
 
@@ -1807,6 +1809,10 @@ a:hover{
     left: 8%;
     top:  6%;
     z-index : 10;
+    opacity: 0;
+
+    transition : opacity  0.5s ;
+    -webkit-ransition : opacity 0.5s ;
 
 }
 
@@ -2137,9 +2143,22 @@ a:hover{
 
 
 /** 动画部分 **/
+.price{
+    opacity: 0;
+    -webkit-animation: bounceInUp 0.6s linear 1s 1;
+}
+.bbx{
+    opacity: 0;
+    -webkit-animation: bounceIn 0.6s linear 0.1s 1;
+}
+
 .px-title{
     opacity: 0;
     -webkit-animation: bounceIn 0.6s linear 0.5s 1;
+}
+.ttx{
+    opacity: 0;
+    -webkit-animation: bounceIn 0.6s linear 0.5s 1 !important;
 }
 .hide{
     display: none;
@@ -2564,7 +2583,7 @@ a:hover{
 
 .share-layer{
     background: #ffffff;
-    padding: 15px ;
+    padding: 23px ;
     position: absolute;
     right: 10px;
     top: 15px;
@@ -2588,7 +2607,8 @@ a:hover{
     font-size: 15px;
     position: relative;
 
-    margin-left: 28px;
+    margin-left: 36px;
+    margin-bottom: 9px;
 }
 
 .share-friend-txt{

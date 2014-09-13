@@ -334,10 +334,10 @@ Function.prototype.delegate = function(scope){
 
                     //logo 部分
                     if(index == "0" || index == "8"){
-                        UI.logo.hide();
+                        UI.logo.css("opacity","0");
                     }
                     else if(index == "1"){
-                        UI.logo.show();
+                        UI.logo.css("opacity","1");
                     }
 
 
@@ -414,6 +414,22 @@ Function.prototype.delegate = function(scope){
         return index;
     }
 
+var imageList = [
+    "./static/images/all-zip.png",
+    "./static/images/box.jpg",
+    "./static/images/bg.png",
+    "./static/images/font.png",
+    "./static/images/icon.png",
+    "./static/images/jianpin.jpg",
+    "./static/images/share.png"
+];
+var ld = new loadermsk(imageList, "#0e79ef",
+    function() {
+        EventMobile.init();
+        //alert(JSON.stringify(brower.versions()));
+        $("#wp").show();
+    });
+
 
 
 var brower = {
@@ -471,21 +487,7 @@ var brower = {
 };
 
 
-var imageList = [
-    "../../images/all-zip.png",
-    "../../images/box.jpg",
-    "../../images/bg.png",
-    "../../images/font.png",
-    "../../images/icon.png",
-    "../../images/jianpin.jpg",
-    "../../images/share.png"
-];
-var ld = new loadermsk(imageList, "#0e79ef",
-    function() {
-        EventMobile.init();
-        //alert(JSON.stringify(brower.versions()));
-        $("#wp").show();
-    });
+
 
 
 

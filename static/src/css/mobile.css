@@ -218,6 +218,10 @@
     left: 8%;
     top:  6%;
     z-index : 10;
+    opacity: 0;
+
+    transition : opacity  0.5s ;
+    -webkit-ransition : opacity 0.5s ;
 
 }
 
@@ -548,9 +552,22 @@
 
 
 /** 动画部分 **/
+.price{
+    opacity: 0;
+    -webkit-animation: bounceInUp 0.6s linear 1s 1;
+}
+.bbx{
+    opacity: 0;
+    -webkit-animation: bounceIn 0.6s linear 0.1s 1;
+}
+
 .px-title{
     opacity: 0;
     -webkit-animation: bounceIn 0.6s linear 0.5s 1;
+}
+.ttx{
+    opacity: 0;
+    -webkit-animation: bounceIn 0.6s linear 0.5s 1 !important;
 }
 .hide{
     display: none;
@@ -975,7 +992,7 @@
 
 .share-layer{
     background: #ffffff;
-    padding: 15px ;
+    padding: 23px ;
     position: absolute;
     right: 10px;
     top: 15px;
@@ -999,7 +1016,8 @@
     font-size: 15px;
     position: relative;
 
-    margin-left: 28px;
+    margin-left: 36px;
+    margin-bottom: 9px;
 }
 
 .share-friend-txt{

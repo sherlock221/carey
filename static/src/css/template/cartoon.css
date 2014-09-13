@@ -287,6 +287,8 @@
 }
 
 
+
+
 /**
  * 旋转360度
  */
@@ -967,24 +969,24 @@
 /** 保持结束帧 **/
 .an-util-forwards{
     -webkit-animation-fill-mode: forwards !important;
-    -moz-animation-fill-mode: forwards;
-    -o-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards !important;
+    -o-animation-fill-mode: forwards !important;
+    animation-fill-mode: forwards !important;
 }
 
 .an-util-allwards{
     -webkit-animation-fill-mode: both !important;
-    -moz-animation-fill-mode: both;
-    -o-animation-fill-mode: both;
-    animation-fill-mode: both;
+    -moz-animation-fill-mode: both !important;
+    -o-animation-fill-mode: both !important;
+    animation-fill-mode: both !important;
 }
 
 /** 保持开始帧 **/
 .an-util-backwards{
     -webkit-animation-fill-mode: backwards  !important;;
-    -moz-animation-fill-mode: backwards;
-    -o-animation-fill-mode: backwards;
-    animation-fill-mode: backwards;
+    -moz-animation-fill-mode: backwards !important;
+    -o-animation-fill-mode: backwards !important;
+    animation-fill-mode: backwards !important;
 }
 
 
