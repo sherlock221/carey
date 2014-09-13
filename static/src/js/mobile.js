@@ -53,7 +53,6 @@
 
 
             $(window).resize(function(){
-
                 //alert("窗口发生变化")
             });
 
@@ -99,7 +98,7 @@
                     for (var i = 0; i < $screen.length; i++) {
                         var $sc = $($screen[i]);
                         $sc.find(".content").addClass("hide");
-                    };
+                    }
                     node.find(".content").removeClass("hide");
 
                 }
@@ -123,7 +122,7 @@
                     node.find(".content").removeClass("hide");
                 },600);
 
-            };
+            }
 
 
 
@@ -138,7 +137,7 @@
 
 
 
-//"-webkit-transform" : "translate3d(0px, -" + height + "px,0px)"
+
     //竖向滑动层
     function transformLayer(index) {
         var height = Cons.LayerHeight * index;
@@ -154,13 +153,14 @@
     //滚动范围判断
     function currentIndexSlice(index){
         var LastIndex = Cons.LastIndex;
-        if(index > LastIndex )
+        if(index > LastIndex ){
               index = LastIndex;
+        }
         else if(index < 0 ){
             index = 0;
         }
         return index;
-    };
+    }
 
 
 
@@ -216,11 +216,10 @@ var brower = {
             }
         }
     }
-}
+};
 
 
 $(function(){
-
     //检测手机系统
     //alert(JSON.stringify(brower.versions()));
    EventMobile.init();

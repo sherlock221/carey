@@ -1,13 +1,10 @@
 
-
-
-
 var Scroller = function(selector, opts){
     if(!selector && typeof selector != 'string') return;
     var _s = selector;
     var _opts = opts || {};
     this.init(_s, _opts);
-}
+};
 
 var _default_opts = {
     Scontainer : '.container',
@@ -99,14 +96,18 @@ Scroller.prototype = {
                 Event.trigger('scrollEnd', this, num);
             }.delegate(this), false);
         }
-        if(opts.scrollEnd)
+        if(opts.scrollEnd){
             Event.bind('scrollBefore', opts.scrollBefore || util.noop, this);
-        if(opts.scrollEnd)
+        }
+        if(opts.scrollEnd){
             Event.bind('scrollEnd', opts.scrollEnd || util.noop, this);
-        if(opts.onScroll)
+        }
+        if(opts.onScroll){
             Event.bind('onScroll', opts.onScroll || util.noop, this);
-        if(opts.onTouchEnd)
+        }
+        if(opts.onTouchEnd){
             Event.bind('onTouchEnd', opts.onTouchEnd || util.noop, this);
+        }
     },
 
     scrollTo:function(options){
@@ -192,10 +193,12 @@ Scroller.prototype = {
 
         }
         if(this.opts.momentum && !this.opts.snap){
-            if(undefined == this.lock || 'lock_y' == this.lock)
+            if(undefined == this.lock || 'lock_y' == this.lock){
                 _x = _x + _dis / disTime * 10000;
-            if(undefined == this.lock || 'lock_x' == this.lock)
+            }
+            if(undefined == this.lock || 'lock_x' == this.lock){
                 _y = _y + _dis / disTime * 10000;
+            }
         }
 
         if(undefined == this.lock || 'lock_x' == this.lock){

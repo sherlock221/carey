@@ -8,7 +8,7 @@ var util = function(){
         var ua = navigator.userAgent.toLowerCase();
         var scene = (ua.indexOf('micromessenger')) > -1 ? 'weixin' : ((/qq\/([\d\.]+)*/).test(ua) ? 'qq': 'web');
         return scene;
-    }
+    };
 
 
     /**
@@ -16,13 +16,13 @@ var util = function(){
      * @returns {*}
      */
     var transitionEnd = function() {
-        var el = document.createElement('div')
+        var el = document.createElement('div');
         var transEndEventNames = {
             'WebkitTransition' : 'webkitTransitionEnd',
             'MozTransition'    : 'transitionend',
             'OTransition'      : 'oTransitionEnd otransitionend',
             'transition'       : 'transitionend'
-        }
+        };
 
         for (var name in transEndEventNames) {
             if (el.style[name] !== undefined) {
@@ -128,15 +128,15 @@ var util = function(){
 
     var addClass=function(elem,_class){
         var className=elem.className,classReg=new RegExp('(^'+_class+'\\s+)|(\\s+'+_class+'\\s+)|(\\s+'+_class+'$)|(^'+_class+'$)','g');
-        if(!className)elem.className=_class;
-        else if(classReg.test(className))return;
-        else elem.className=className+' '+_class;
-    }
+        if(!className){elem.className=_class;}
+        else if(classReg.test(className)){return;}
+        else {elem.className=className+' '+_class;}
+    };
     var removeClass=function(elem,_class){
         var className=elem.className,classReg=new RegExp('(^'+_class+'\\s+)|(\\s+'+_class+'\\s+)|(\\s+'+_class+'$)|(^'+_class+'$)','g');
         className=className.replace(classReg,function(k,$1,$2,$3,$4){if($2)return ' ';else return '';});
         elem.className=className;
-    }
+    };
 
     var get_transform_value=function(transform,key,index){
         //transform即transform的所有属性,key键名，index_arr按数组索引取value
@@ -147,7 +147,7 @@ var util = function(){
                 index_list[i-2]=arguments[i];
             }
         }
-        if('none'==transform||''==transform)return null;//没有值，直接中断
+        if('none'==transform||''==transform){return null;}
         var reg=new RegExp(key+'\\(([^\\)]+)\\)','ig'),key_value=transform.match(reg),value_list=[],ret=[];
         if(key_value&&key_value.length>0){
             key_value=key_value[0];
@@ -156,10 +156,10 @@ var util = function(){
                 ret.push(value_list[index_list[i]]);
             }
         }
-        if(ret.length==1)ret=ret[0];
-        else if(index)ret=ret[index];
+        if(ret.length==1){ret=ret[0];}
+        else if(index){ret=ret[index];}
         return ret;
-    }
+    };
 
     var noop = function(){};
 
@@ -174,7 +174,6 @@ var util = function(){
         'get' : get,
         'addClass' : addClass,
         'removeClass' : removeClass,
-//        'addStyle' : add,
         'getTransform' : get_transform_value
     }
 }();
@@ -197,7 +196,7 @@ var Event = (function(){
             _EventList[name] = [];
         }
         _EventList[name].push(fn);
-    }
+    };
 
     var trigger = function(name, scope, args){
         var _list = _EventList[name];
@@ -207,8 +206,8 @@ var Event = (function(){
         if(_list == undefined) return;
         for (var i = 0; i < _list.length; i++) {
             _list[i].call(scope,  args || {});
-        };
-    }
+        }
+    };
 
     return {
         bind:bind,

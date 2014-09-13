@@ -8,7 +8,7 @@ var util = function(){
         var ua = navigator.userAgent.toLowerCase();
         var scene = (ua.indexOf('micromessenger')) > -1 ? 'weixin' : ((/qq\/([\d\.]+)*/).test(ua) ? 'qq': 'web');
         return scene;
-    }
+    };
 
 
     /**
@@ -16,13 +16,13 @@ var util = function(){
      * @returns {*}
      */
     var transitionEnd = function() {
-        var el = document.createElement('div')
+        var el = document.createElement('div');
         var transEndEventNames = {
             'WebkitTransition' : 'webkitTransitionEnd',
             'MozTransition'    : 'transitionend',
             'OTransition'      : 'oTransitionEnd otransitionend',
             'transition'       : 'transitionend'
-        }
+        };
 
         for (var name in transEndEventNames) {
             if (el.style[name] !== undefined) {
@@ -128,15 +128,15 @@ var util = function(){
 
     var addClass=function(elem,_class){
         var className=elem.className,classReg=new RegExp('(^'+_class+'\\s+)|(\\s+'+_class+'\\s+)|(\\s+'+_class+'$)|(^'+_class+'$)','g');
-        if(!className)elem.className=_class;
-        else if(classReg.test(className))return;
-        else elem.className=className+' '+_class;
-    }
+        if(!className){elem.className=_class;}
+        else if(classReg.test(className)){return;}
+        else {elem.className=className+' '+_class;}
+    };
     var removeClass=function(elem,_class){
         var className=elem.className,classReg=new RegExp('(^'+_class+'\\s+)|(\\s+'+_class+'\\s+)|(\\s+'+_class+'$)|(^'+_class+'$)','g');
         className=className.replace(classReg,function(k,$1,$2,$3,$4){if($2)return ' ';else return '';});
         elem.className=className;
-    }
+    };
 
     var get_transform_value=function(transform,key,index){
         //transform即transform的所有属性,key键名，index_arr按数组索引取value
@@ -147,7 +147,7 @@ var util = function(){
                 index_list[i-2]=arguments[i];
             }
         }
-        if('none'==transform||''==transform)return null;//没有值，直接中断
+        if('none'==transform||''==transform){return null;}
         var reg=new RegExp(key+'\\(([^\\)]+)\\)','ig'),key_value=transform.match(reg),value_list=[],ret=[];
         if(key_value&&key_value.length>0){
             key_value=key_value[0];
@@ -156,10 +156,10 @@ var util = function(){
                 ret.push(value_list[index_list[i]]);
             }
         }
-        if(ret.length==1)ret=ret[0];
-        else if(index)ret=ret[index];
+        if(ret.length==1){ret=ret[0];}
+        else if(index){ret=ret[index];}
         return ret;
-    }
+    };
 
     var noop = function(){};
 
@@ -174,7 +174,6 @@ var util = function(){
         'get' : get,
         'addClass' : addClass,
         'removeClass' : removeClass,
-//        'addStyle' : add,
         'getTransform' : get_transform_value
     }
 }();
@@ -197,7 +196,7 @@ var Event = (function(){
             _EventList[name] = [];
         }
         _EventList[name].push(fn);
-    }
+    };
 
     var trigger = function(name, scope, args){
         var _list = _EventList[name];
@@ -207,8 +206,8 @@ var Event = (function(){
         if(_list == undefined) return;
         for (var i = 0; i < _list.length; i++) {
             _list[i].call(scope,  args || {});
-        };
-    }
+        }
+    };
 
     return {
         bind:bind,
@@ -249,7 +248,232 @@ Function.prototype.delegate = function(scope){
     };
 };
 
+/**
+ * mobile js
+ */
 
+
+
+
+    var UI = {
+       ScreenAll : $("#screen-all"),
+       logo      : $("#logo"),
+       box       : $("#px")
+    };
+
+    var Cons = {
+        LayerHeight: 0,
+        currentIndex : 0,
+        LastIndex   : 0
+    };
+
+
+
+    //animation
+    var tt = document.querySelector('#px');
+   if(tt){
+       tt.addEventListener("webkitAnimationEnd", function(){
+           UI.box.removeClass("rubberBand").addClass("open");
+           return false;
+       },false);
+   }
+
+
+
+
+    var EventMobile = {
+
+        init: function () {
+
+//            //自适应高度
+//            var $screen = UI.ScreenAll.find(".screen");
+//
+//            //首次初始化高度
+//
+//            var winh =   UI.ScreenAll[0].offsetHeight;
+//
+//            Cons.LayerHeight =winh;
+////            //修改每个的高度
+//
+//            $screen.css("height", Cons.LayerHeight + "px");
+            //事件初始化
+            EventMobile.button();
+
+
+
+
+            $(window).resize(function(){
+                //alert("窗口发生变化")
+            });
+
+        },
+        button: function () {
+
+            var $screen = UI.ScreenAll.find(".screen");
+            Cons.LastIndex = $screen.size() -1;
+
+
+            var wrapper_scroll = new Scroller('#wp', {
+                Scontainer : '.screen-all',
+                hScroll : false,
+                vScroll : true,
+                momentum : true,
+                bounce : false,
+                snap: true,
+                scrollBefore: function(name, e){
+
+                },
+                onScroll: function(name, obj){
+                },
+                onTouchEnd: function(name, obj){
+                },
+                scrollEnd: function(index){
+                    console.log(index);
+
+                    //logo 部分
+                    if(index == "0" || index == "8"){
+                        UI.logo.hide();
+                    }
+                    else if(index == "1"){
+                        UI.logo.show();
+                    }
+
+
+
+                    var pages = this.$li;
+                    var $screen = UI.ScreenAll.find(".screen");
+                    var node = $screen.filter("[id='screen-0"+index+"']");
+
+
+                    for (var i = 0; i < $screen.length; i++) {
+                        var $sc = $($screen[i]);
+                        $sc.find(".content").addClass("hide");
+                    }
+                    node.find(".content").removeClass("hide");
+
+                }
+            });
+
+
+
+
+
+            function toggleDot(index){
+                //改变效用
+                var node = $screen.filter("[id='screen-0"+index+"']");
+
+
+                transformLayer(index);
+
+                setTimeout(function(){
+                    $screen.forEach(function(t){
+                        $(t).find(".content").addClass("hide");
+                    });
+                    node.find(".content").removeClass("hide");
+                },600);
+
+            }
+
+
+
+
+
+        }
+
+
+    };
+
+
+
+
+
+
+    //竖向滑动层
+    function transformLayer(index) {
+        var height = Cons.LayerHeight * index;
+        var tranPx = "translate(0px, -" + height + "px)";
+        UI.ScreenAll.css({
+            "-webkit-transform" : "translate3d(0px, -" + height + "px,0px)",
+            "transform" : "translate3d(0px, -" + height + "px,0px)"
+
+        });
+
+    }
+
+    //滚动范围判断
+    function currentIndexSlice(index){
+        var LastIndex = Cons.LastIndex;
+        if(index > LastIndex ){
+              index = LastIndex;
+        }
+        else if(index < 0 ){
+            index = 0;
+        }
+        return index;
+    }
+
+
+
+var brower = {
+    versions:function(){
+        var u = window.navigator.userAgent;
+        var num ;
+        if(u.indexOf('Trident') > -1){
+            //IE
+            return "IE";
+        }else if(u.indexOf('Presto') > -1){
+            //opera
+            return "Opera";
+        }else if(u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1){
+            //firefox
+            return "Firefox";
+        }else if(u.indexOf('AppleWebKit' && u.indexOf('Safari') > -1) > -1){
+            //苹果、谷歌内核
+            if(u.indexOf('Chrome') > -1){
+                //chrome
+                return "Chrome";
+            }else if(u.indexOf('OPR')){
+                //webkit Opera
+                return "Opera_webkit"
+            }else{
+                //Safari
+                return "Safari";
+            }
+        }else if(u.indexOf('Mobile') > -1){
+            //移动端
+            if(!!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)){
+                //ios
+                if(u.indexOf('iPhone') > -1){
+                    //iphone
+                    return "iPhone"
+                }else if(u.indexOf('iPod') > -1){
+                    //ipod
+                    return "iPod"
+                }else if(u.indexOf('iPad') > -1){
+                    //ipad
+                    return "iPad"
+                }
+            }else if(u.indexOf('Android') > -1 || u.indexOf('Linux') > -1){
+                //android
+                num = u.substr(u.indexOf('Android') + 8, 3);
+                return {"type":"Android", "version": num};
+            }else if(u.indexOf('BB10') > -1 ){
+                //黑莓bb10系统
+                return "BB10";
+            }else if(u.indexOf('IEMobile')){
+                //windows phone
+                return "Windows Phone"
+            }
+        }
+    }
+};
+
+
+$(function(){
+    //检测手机系统
+    //alert(JSON.stringify(brower.versions()));
+   EventMobile.init();
+});
 
 
 
@@ -260,7 +484,7 @@ var Scroller = function(selector, opts){
     var _s = selector;
     var _opts = opts || {};
     this.init(_s, _opts);
-}
+};
 
 var _default_opts = {
     Scontainer : '.container',
@@ -352,14 +576,18 @@ Scroller.prototype = {
                 Event.trigger('scrollEnd', this, num);
             }.delegate(this), false);
         }
-        if(opts.scrollEnd)
+        if(opts.scrollEnd){
             Event.bind('scrollBefore', opts.scrollBefore || util.noop, this);
-        if(opts.scrollEnd)
+        }
+        if(opts.scrollEnd){
             Event.bind('scrollEnd', opts.scrollEnd || util.noop, this);
-        if(opts.onScroll)
+        }
+        if(opts.onScroll){
             Event.bind('onScroll', opts.onScroll || util.noop, this);
-        if(opts.onTouchEnd)
+        }
+        if(opts.onTouchEnd){
             Event.bind('onTouchEnd', opts.onTouchEnd || util.noop, this);
+        }
     },
 
     scrollTo:function(options){
@@ -445,10 +673,12 @@ Scroller.prototype = {
 
         }
         if(this.opts.momentum && !this.opts.snap){
-            if(undefined == this.lock || 'lock_y' == this.lock)
+            if(undefined == this.lock || 'lock_y' == this.lock){
                 _x = _x + _dis / disTime * 10000;
-            if(undefined == this.lock || 'lock_x' == this.lock)
+            }
+            if(undefined == this.lock || 'lock_x' == this.lock){
                 _y = _y + _dis / disTime * 10000;
+            }
         }
 
         if(undefined == this.lock || 'lock_x' == this.lock){
@@ -541,238 +771,6 @@ Scroller.prototype = {
         this.$el.removeEventListener("touchstart", this.fun);
         this.$parent.style.overflow = 'visible';
     }
-};
-
-/**
- * mobile js
- */
-
-
-
-
-var UI = {
-    ScreenAll : $("#screen-all"),
-    logo      : $("#logo"),
-    box       : $("#px")
-};
-
-var Cons = {
-    LayerHeight: 0,
-    currentIndex : 0,
-    LastIndex   : 0
-};
-
-
-
-//animation
-var tt = document.querySelector('#px');
-if(tt){
-    tt.addEventListener("webkitAnimationEnd", function(){
-        UI.box.removeClass("rubberBand").addClass("open");
-        return false;
-    },false);
 }
-
-
-
-
-var EventMobile = {
-
-    init: function () {
-
-        //自适应高度
-        var $screen = UI.ScreenAll.find(".screen");
-
-        //首次初始化高度
-
-        var winh =   UI.ScreenAll[0].offsetHeight;
-
-        Cons.LayerHeight =winh;
-//            //修改每个的高度
-
-        $screen.css("height", Cons.LayerHeight + "px");
-        //事件初始化
-        EventMobile.button();
-
-
-
-
-        $(window).resize(function(){
-
-            //alert("窗口发生变化")
-        });
-
-    },
-    button: function () {
-
-        var $screen = UI.ScreenAll.find(".screen");
-        Cons.LastIndex = $screen.size() -1;
-
-
-        var wrapper_scroll = new Scroller('#wp', {
-            Scontainer : '.screen-all',
-            hScroll : false,
-            vScroll : true,
-            momentum : true,
-            bounce : false,
-            snap: true,
-            scrollBefore: function(name, e){
-
-            },
-            onScroll: function(name, obj){
-            },
-            onTouchEnd: function(name, obj){
-            },
-            scrollEnd: function(index){
-                console.log(index);
-
-                //logo 部分
-                if(index == "0" || index == "8"){
-                    UI.logo.hide();
-                }
-                else if(index == "1"){
-                    UI.logo.show();
-                }
-
-
-
-                var pages = this.$li;
-                var $screen = UI.ScreenAll.find(".screen");
-                var node = $screen.filter("[id='screen-0"+index+"']");
-
-
-                for (var i = 0; i < $screen.length; i++) {
-                    var $sc = $($screen[i]);
-                    $sc.find(".content").addClass("hide");
-                };
-                node.find(".content").removeClass("hide");
-
-            }
-        });
-
-
-
-
-
-        function toggleDot(index){
-            //改变效用
-            var node = $screen.filter("[id='screen-0"+index+"']");
-
-
-            transformLayer(index);
-
-            setTimeout(function(){
-                $screen.forEach(function(t){
-                    $(t).find(".content").addClass("hide");
-                });
-                node.find(".content").removeClass("hide");
-            },600);
-
-        };
-
-
-
-
-
-    }
-
-
-};
-
-
-
-
-
-//"-webkit-transform" : "translate3d(0px, -" + height + "px,0px)"
-//竖向滑动层
-function transformLayer(index) {
-    var height = Cons.LayerHeight * index;
-    var tranPx = "translate(0px, -" + height + "px)";
-    UI.ScreenAll.css({
-        "-webkit-transform" : "translate3d(0px, -" + height + "px,0px)",
-        "transform" : "translate3d(0px, -" + height + "px,0px)"
-
-    });
-
-}
-
-//滚动范围判断
-function currentIndexSlice(index){
-    var LastIndex = Cons.LastIndex;
-    if(index > LastIndex )
-        index = LastIndex;
-    else if(index < 0 ){
-        index = 0;
-    }
-    return index;
-};
-
-
-
-var brower = {
-    versions:function(){
-        var u = window.navigator.userAgent;
-        var num ;
-        if(u.indexOf('Trident') > -1){
-            //IE
-            return "IE";
-        }else if(u.indexOf('Presto') > -1){
-            //opera
-            return "Opera";
-        }else if(u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1){
-            //firefox
-            return "Firefox";
-        }else if(u.indexOf('AppleWebKit' && u.indexOf('Safari') > -1) > -1){
-            //苹果、谷歌内核
-            if(u.indexOf('Chrome') > -1){
-                //chrome
-                return "Chrome";
-            }else if(u.indexOf('OPR')){
-                //webkit Opera
-                return "Opera_webkit"
-            }else{
-                //Safari
-                return "Safari";
-            }
-        }else if(u.indexOf('Mobile') > -1){
-            //移动端
-            if(!!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)){
-                //ios
-                if(u.indexOf('iPhone') > -1){
-                    //iphone
-                    return "iPhone"
-                }else if(u.indexOf('iPod') > -1){
-                    //ipod
-                    return "iPod"
-                }else if(u.indexOf('iPad') > -1){
-                    //ipad
-                    return "iPad"
-                }
-            }else if(u.indexOf('Android') > -1 || u.indexOf('Linux') > -1){
-                //android
-                num = u.substr(u.indexOf('Android') + 8, 3);
-                return {"type":"Android", "version": num};
-            }else if(u.indexOf('BB10') > -1 ){
-                //黑莓bb10系统
-                return "BB10";
-            }else if(u.indexOf('IEMobile')){
-                //windows phone
-                return "Windows Phone"
-            }
-        }
-    }
-}
-
-
-$(function(){
-
-    //检测手机系统
-    //alert(JSON.stringify(brower.versions()));
-    EventMobile.init();
-});
-
-
-
-
 
 
