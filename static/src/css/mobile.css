@@ -1076,3 +1076,7 @@
     background:#000000;
     opacity: 0.6;
 }
+
+.mp_loading{
+    background-color: #ff508a !important;
+}

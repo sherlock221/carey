@@ -5,6 +5,8 @@
 
 
 
+
+
     var UI = {
        ScreenAll : $("#screen-all"),
        logo      : $("#logo"),
@@ -219,11 +221,19 @@ var brower = {
 };
 
 
-$(function(){
-    //检测手机系统
-    //alert(JSON.stringify(brower.versions()));
-   EventMobile.init();
-});
-
-
+var imageList = [
+    "../../images/all-zip.png",
+    "../../images/box.jpg",
+    "../../images/bg.png",
+    "../../images/font.png",
+    "../../images/icon.png",
+    "../../images/jianpin.jpg",
+    "../../images/share.png"
+];
+var ld = new loadermsk(imageList, "#0e79ef",
+    function() {
+        EventMobile.init();
+        //alert(JSON.stringify(brower.versions()));
+        $("#wp").show();
+    });
 
